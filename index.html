@@ -1,114 +1,1548 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Luyện ngữ pháp DELF B1 theo từng ngày">
-  <title>DELF B1 – Grammar Practice Center</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlas đọc Output IBM SPSS Statistics 26</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --panel-soft: #eef5ff;
+      --text: #172033;
+      --muted: #64748b;
+      --line: #d9e2ef;
+      --navy: #0f2d52;
+      --blue: #2563eb;
+      --blue-soft: #dbeafe;
+      --green: #16a34a;
+      --green-soft: #dcfce7;
+      --orange: #f97316;
+      --orange-soft: #ffedd5;
+      --red: #dc2626;
+      --red-soft: #fee2e2;
+      --shadow: 0 14px 35px rgba(15, 45, 82, 0.11);
+      --radius: 8px;
+      --sidebar: 296px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0b1220;
+      --panel: #121c2e;
+      --panel-soft: #17263e;
+      --text: #e5edf8;
+      --muted: #a8b5c7;
+      --line: #26364e;
+      --navy: #d9e8ff;
+      --blue: #60a5fa;
+      --blue-soft: #12345a;
+      --green-soft: #143724;
+      --orange-soft: #422713;
+      --red-soft: #421919;
+      --shadow: 0 16px 38px rgba(0, 0, 0, 0.28);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: var(--sidebar) 1fr;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+      background: #0f2d52;
+      color: #fff;
+      padding: 20px 16px;
+      border-right: 1px solid rgba(255,255,255,0.12);
+      z-index: 20;
+    }
+
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      background: #3b82f6;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(37,99,235,0.35);
+      flex: 0 0 auto;
+    }
+
+    .brand h1 {
+      font-size: 15px;
+      line-height: 1.25;
+      margin: 0;
+      letter-spacing: 0;
+    }
+
+    .brand small {
+      color: #b9d3f3;
+      display: block;
+      margin-top: 3px;
+      font-size: 12px;
+    }
+
+    .side-tools {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .searchbox {
+      position: relative;
+    }
+
+    .searchbox i {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #7aa7de;
+      font-size: 14px;
+    }
+
+    .searchbox input, .filter-select {
+      width: 100%;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      outline: none;
+    }
+
+    .searchbox input {
+      padding: 0 12px 0 36px;
+    }
+
+    .searchbox input::placeholder { color: #abc5e8; }
+    .filter-select { padding: 0 10px; }
+    .filter-select option { color: #172033; }
+
+    .progress-wrap {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #d8e7fb;
+      margin-bottom: 8px;
+      gap: 8px;
+    }
+
+    .progress-bar {
+      height: 9px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: #22c55e;
+      transition: width .25s ease;
+    }
+
+    .nav-title {
+      color: #9fc3ef;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin: 18px 8px 8px;
+    }
+
+    .chapter-nav {
+      display: grid;
+      gap: 5px;
+    }
+
+    .nav-link {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: #dbeafe;
+      text-align: left;
+      border-radius: var(--radius);
+      padding: 10px 9px;
+      display: grid;
+      grid-template-columns: 24px 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+    }
+
+    .nav-link .done-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.24);
+    }
+
+    .nav-link.done .done-dot { background: #22c55e; }
+
+    .main {
+      min-width: 0;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 15;
+      background: color-mix(in srgb, var(--bg) 86%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 24px;
+    }
+
+    .mobile-menu {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      border-radius: var(--radius);
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .theme-toggle, .export-btn, .mark-btn, .ghost-btn {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      min-height: 40px;
+      border-radius: var(--radius);
+      padding: 0 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 16px rgba(15,45,82,0.05);
+    }
+
+    .mark-btn {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    .content {
+      padding: 24px;
+      max-width: 1220px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 360px;
+      background:
+        linear-gradient(115deg, rgba(15,45,82,0.96), rgba(37,99,235,0.78)),
+        radial-gradient(circle at 78% 24%, rgba(255,255,255,.22), transparent 28%),
+        #0f2d52;
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 36px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+      gap: 26px;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero h2 {
+      font-size: clamp(30px, 4vw, 54px);
+      line-height: 1.05;
+      margin: 0 0 16px;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 760px;
+      color: #dcecff;
+      font-size: 17px;
+      margin: 0 0 22px;
+    }
+
+    .quick-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .quick-grid button {
+      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 10px 12px;
+      min-height: 40px;
+    }
+
+    .hero-visual {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.18);
+    }
+
+    .spss-window {
+      background: #f8fafc;
+      color: #172033;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid rgba(15,45,82,.12);
+    }
+
+    .window-bar {
+      height: 34px;
+      background: #d9e6f7;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 10px;
+      color: #274462;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+    .dot.red { background: #ef4444; }
+    .dot.yellow { background: #f59e0b; }
+    .dot.green { background: #22c55e; margin-right: 8px; }
+
+    .mini-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .mini-table th, .mini-table td {
+      border: 1px solid #d6dee9;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .mini-table th { background: #eef5ff; }
+    .hot-cell {
+      outline: 2px solid #dc2626;
+      outline-offset: -2px;
+      background: #fff7ed;
+      font-weight: 800;
+    }
+
+    .section {
+      margin-top: 24px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .section h3 {
+      font-size: 24px;
+      margin: 0;
+      letter-spacing: 0;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      margin: 4px 0 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 6px 22px rgba(15,45,82,0.06);
+    }
+
+    .card h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card p, .card li { color: var(--muted); }
+    .card p { margin: 0; }
+
+    .chapter {
+      display: none;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .chapter.active { display: block; }
+
+    .chapter-header {
+      padding: 24px;
+      background: linear-gradient(120deg, var(--panel-soft), var(--panel));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .chapter-header h2 {
+      margin: 8px 0 8px;
+      font-size: clamp(24px, 3vw, 36px);
+      letter-spacing: 0;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag, .metric-pill {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .metric-pill {
+      border-color: color-mix(in srgb, var(--blue) 30%, var(--line));
+      color: var(--blue);
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .metric-pill:hover { background: var(--blue-soft); }
+
+    .chapter-body {
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .accordion {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--panel);
+    }
+
+    .acc-btn {
+      width: 100%;
+      min-height: 50px;
+      border: 0;
+      background: var(--panel-soft);
+      color: var(--text);
+      padding: 12px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+      font-weight: 800;
+    }
+
+    .acc-content {
+      display: none;
+      padding: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .accordion.open .acc-content { display: block; }
+
+    .steps {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .threshold-table, .output-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: var(--radius);
+      font-size: 14px;
+    }
+
+    .threshold-table th, .threshold-table td,
+    .output-table th, .output-table td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .threshold-table th, .output-table th {
+      background: var(--panel-soft);
+      color: var(--text);
+    }
+
+    .ok { color: var(--green); font-weight: 800; }
+    .warn { color: var(--orange); font-weight: 800; }
+    .bad { color: var(--red); font-weight: 800; }
+    .callout {
+      border-left: 4px solid var(--blue);
+      background: var(--panel-soft);
+      padding: 14px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .sample-write {
+      background: var(--green-soft);
+      border: 1px solid color-mix(in srgb, var(--green) 35%, var(--line));
+      border-radius: var(--radius);
+      padding: 14px;
+    }
+
+    .mistake-list li::marker { color: var(--orange); }
+
+    .notes-box textarea {
+      width: 100%;
+      min-height: 140px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      border-radius: var(--radius);
+      padding: 12px;
+      outline: none;
+    }
+
+    .quiz {
+      display: grid;
+      gap: 12px;
+    }
+
+    .quiz-item {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      background: var(--panel);
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .quiz-options button {
+      border: 1px solid var(--line);
+      background: var(--panel-soft);
+      color: var(--text);
+      text-align: left;
+      padding: 10px;
+      border-radius: var(--radius);
+    }
+
+    .quiz-options button.correct {
+      background: var(--green-soft);
+      border-color: var(--green);
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .quiz-options button.wrong {
+      background: var(--red-soft);
+      border-color: var(--red);
+      color: var(--red);
+      font-weight: 800;
+    }
+
+    .appendix-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 8, 23, .62);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 50;
+    }
+
+    .modal-backdrop.show { display: flex; }
+
+    .modal {
+      width: min(760px, 100%);
+      max-height: min(760px, 88vh);
+      overflow: auto;
+      background: var(--panel);
+      color: var(--text);
+      border-radius: var(--radius);
+      box-shadow: 0 24px 80px rgba(0,0,0,.35);
+      border: 1px solid var(--line);
+    }
+
+    .modal-head {
+      position: sticky;
+      top: 0;
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .modal-head h3 { margin: 0; }
+    .modal-body { padding: 16px; display: grid; gap: 12px; }
+    .close-btn {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel-soft);
+      color: var(--text);
+    }
+
+    .search-results {
+      display: none;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      margin: 14px 0 0;
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .search-results.show { display: block; }
+    .result-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.4);
+      z-index: 18;
+    }
+
+    @media (max-width: 980px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar {
+        position: fixed;
+        transform: translateX(-105%);
+        transition: transform .2s ease;
+        width: min(320px, 88vw);
+      }
+      .sidebar.open { transform: translateX(0); }
+      .mobile-overlay.show { display: block; }
+      .mobile-menu { display: inline-grid; place-items: center; }
+      .hero { grid-template-columns: 1fr; }
+      .cards, .appendix-grid { grid-template-columns: 1fr; }
+      .topbar { padding: 10px 14px; }
+      .content { padding: 16px; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 24px 18px; }
+      .top-actions { justify-content: flex-end; }
+      .theme-toggle span, .export-btn span, .mark-btn span { display: none; }
+      .chapter-body, .chapter-header { padding: 16px; }
+      .section-head { align-items: start; flex-direction: column; }
+      .threshold-table, .output-table { font-size: 13px; }
+    }
+  </style>
 </head>
 <body>
-  <aside class="sidebar" id="sidebar">
-    <div class="brand"><span>G</span><div><strong>DELF B1</strong><small>Grammar Practice Center</small></div></div>
-    <button class="sidebar-close" id="sidebarClose" aria-label="Đóng">×</button>
-    <div class="app-switcher" aria-label="Chọn trung tâm học tập">
-      <a class="app-link grammar active" href="index.html" aria-current="page"><span>G</span><div><strong>Ngữ pháp</strong><small>Grammar Center</small></div><b>Đang học</b></a>
-      <a class="app-link vocabulary" href="../index.html"><span>V</span><div><strong>Từ vựng</strong><small>Daily Quiz Center</small></div><b>Mở →</b></a>
-      <a class="app-link daily" href="../../../h-y-t-o-cho-t/outputs/index.html"><span>D</span><div><strong>Học mỗi ngày</strong><small>Daily Command</small></div><b>Mở →</b></a>
-    </div>
-    <p class="phase">GIAI ĐOẠN 1 · 19/06–31/07</p>
-    <nav id="dateNav" aria-label="Danh sách ngày học"></nav>
-  </aside>
-  <div class="overlay" id="overlay"></div>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark"><i class="fa-solid fa-chart-column"></i></div>
+        <div>
+          <h1>Atlas đọc Output IBM SPSS Statistics 26</h1>
+          <small>Học chỉ số, đọc bảng, viết kết quả</small>
+        </div>
+      </div>
 
-  <main>
-    <header class="topbar">
-      <button class="menu" id="menuButton" aria-label="Mở danh sách ngày">☰</button>
-      <div><p class="kicker">UN PEU DE GRAMMAIRE CHAQUE JOUR</p><h1>Grammar Practice Center</h1></div>
-      <div class="top-actions">
-        <div class="grammar-docs-menu">
-          <button class="grammar-docs-button" id="grammarDocsButton" type="button" aria-expanded="false" aria-controls="grammarDocsDropdown">
-            <span class="grammar-docs-logo" aria-hidden="true">G</span>
-            <span class="grammar-docs-copy"><strong>Google Docs</strong><small>43 chủ điểm</small></span>
-            <b aria-hidden="true">⌄</b>
-          </button>
-          <div class="grammar-docs-dropdown hidden" id="grammarDocsDropdown">
-            <div class="grammar-docs-head">
-              <div><strong>GIAI ĐOẠN 1</strong><small>19/06–31/07 · 43 trang</small></div>
-              <a href="https://docs.google.com/document/d/1jDOXkLqLHF2qRvccMJYQBqrh7lDazVG6J2VNkz8Lff8/edit?tab=t.0" target="_blank" rel="noopener">Mở toàn bộ ↗</a>
+      <div class="side-tools">
+        <label class="searchbox" for="metricSearch">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input id="metricSearch" type="search" placeholder="Tìm Mean, VIF, Sig., Beta...">
+        </label>
+        <select id="groupFilter" class="filter-select" aria-label="Lọc nhóm phân tích">
+          <option value="all">Tất cả nhóm phân tích</option>
+          <option value="Làm quen">Làm quen</option>
+          <option value="Mô tả">Mô tả</option>
+          <option value="Cronbach">Cronbach</option>
+          <option value="EFA">EFA</option>
+          <option value="Tương quan">Tương quan</option>
+          <option value="Hồi quy">Hồi quy</option>
+          <option value="T-test">T-test</option>
+          <option value="ANOVA">ANOVA</option>
+          <option value="Viết kết quả">Viết kết quả</option>
+          <option value="Phụ lục">Phụ lục</option>
+        </select>
+      </div>
+
+      <div class="progress-wrap">
+        <div class="progress-top">
+          <span>Tiến độ học tập</span>
+          <strong id="progressText">0/11</strong>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+
+      <div class="nav-title">Chương học</div>
+      <nav class="chapter-nav" id="chapterNav"></nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Mở danh mục"><i class="fa-solid fa-bars"></i></button>
+        <div>
+          <strong id="currentTitle">Trang chủ</strong>
+          <div class="section-sub" id="currentSubtitle">Chọn chương hoặc tìm chỉ số cần đọc</div>
+        </div>
+        <div class="top-actions">
+          <button class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i><span>Dark Mode</span></button>
+          <button class="export-btn" id="exportNotes"><i class="fa-solid fa-file-export"></i><span>Xuất ghi chú</span></button>
+          <button class="mark-btn" id="markDone"><i class="fa-solid fa-check"></i><span>Đã hiểu</span></button>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="hero" id="home">
+          <div>
+            <span class="eyebrow"><i class="fa-solid fa-graduation-cap"></i> Website học tập SPSS</span>
+            <h2>Atlas đọc Output IBM SPSS Statistics 26</h2>
+            <p>Công cụ học SPSS trực quan, giúp đọc Output, hiểu chỉ số và viết kết quả vào luận văn theo từng bước rõ ràng.</p>
+            <div class="quick-grid" id="quickGrid"></div>
+          </div>
+          <div class="hero-visual" aria-label="Mô phỏng bảng Output SPSS">
+            <div class="spss-window">
+              <div class="window-bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>IBM SPSS Output Viewer</div>
+              <table class="mini-table">
+                <thead><tr><th>Model</th><th>R Square</th><th>Sig.</th><th>VIF</th></tr></thead>
+                <tbody>
+                  <tr><td>1</td><td class="hot-cell">.642</td><td class="hot-cell">.000</td><td>1.84</td></tr>
+                  <tr><td>Gợi ý đọc</td><td>Mức giải thích</td><td>Ý nghĩa</td><td>Đa cộng tuyến</td></tr>
+                </tbody>
+              </table>
             </div>
-            <nav id="grammarDocsLinks" aria-label="Liên kết Google Docs theo chủ điểm"></nav>
           </div>
+        </section>
+
+        <div class="search-results" id="searchResults">
+          <strong>Kết quả tìm chỉ số</strong>
+          <div class="result-list" id="resultList"></div>
         </div>
-        <label class="exam-switch"><input id="examMode" type="checkbox"><span></span> Mode Examen</label>
-        <a class="btn ghost" target="_blank" rel="noopener" href="https://docs.google.com/spreadsheets/d/1YFaJsXJTqSx6uHM-JiE21w3QQ0O2eGNzHn74Jk4L0ME/edit?gid=2114291577#gid=2114291577">Mở Google Sheet ↗</a>
-      </div>
-    </header>
 
-    <section class="dashboard">
-      <article><span>Tổng bài ngữ pháp</span><strong id="totalLessons">43</strong><small>bài học</small></article>
-      <article><span>Đã hoàn thành</span><strong id="completedLessons">0</strong><small>ngày</small></article>
-      <article><span>Điểm trung bình</span><strong id="averageScore">—</strong><small>trên 100</small></article>
-      <article><span>Lỗi cần ôn</span><strong id="errorCount">0</strong><small>câu</small></article>
-      <article class="progress-card"><div><span>Tiến độ Giai đoạn 1</span><b id="progressLabel">0/43</b></div><div class="track"><i id="progressBar"></i></div><small id="weeklyProgress">Tuần 1: 0/7</small></article>
-    </section>
-
-    <section class="lesson-hero">
-      <div><div class="meta"><span id="weekBadge">Tuần 1</span><time id="lessonDate">19/06/2026</time></div><h2 id="lessonTitle">Discours indirect au présent</h2><p id="lessonUse">Thuật lại lời nói của người khác.</p></div>
-      <div class="hero-symbol">que</div>
-    </section>
-
-    <section class="formula-image-panel panel">
-      <div class="panel-head">
-        <div><span>CÔNG THỨC BẰNG ẢNH</span><h3>Hai trang công thức A4 của tôi</h3></div>
-      </div>
-      <div class="a4-workspace">
-        <div class="a4-slot">
-          <div class="a4-slot-head"><strong>Trang A</strong><div><button class="mini-image-btn choose-image" data-slot="0" type="button">＋ Chọn</button><button class="mini-image-btn paste-image" data-slot="0" type="button">⎘ Dán</button><button class="mini-image-btn remove-image hidden" data-slot="0" type="button">× Xóa</button></div></div>
-          <input class="hidden formula-image-input" data-slot="0" type="file" accept="image/png,image/jpeg,image/webp">
-          <div class="a4-frame" data-slot="0" tabindex="0" title="Nhấp vào đây rồi nhấn Ctrl + V để dán ảnh">
-            <div class="a4-placeholder"><strong>Khung A4 · Trang A</strong><span>210 × 297 mm · Dọc</span><small>Chọn ảnh hoặc nhấn Ctrl + V</small></div>
-            <img class="hidden formula-image-preview" alt="Ảnh công thức ngữ pháp trang A">
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h3>Thẻ kiến thức nhanh</h3>
+              <p class="section-sub">Bấm vào từng chỉ số để xem cách đọc và cách viết vào luận văn.</p>
+            </div>
           </div>
-        </div>
-        <div class="a4-slot">
-          <div class="a4-slot-head"><strong>Trang B</strong><div><button class="mini-image-btn choose-image" data-slot="1" type="button">＋ Chọn</button><button class="mini-image-btn paste-image" data-slot="1" type="button">⎘ Dán</button><button class="mini-image-btn remove-image hidden" data-slot="1" type="button">× Xóa</button></div></div>
-          <input class="hidden formula-image-input" data-slot="1" type="file" accept="image/png,image/jpeg,image/webp">
-          <div class="a4-frame" data-slot="1" tabindex="0" title="Nhấp vào đây rồi nhấn Ctrl + V để dán ảnh">
-            <div class="a4-placeholder"><strong>Khung A4 · Trang B</strong><span>210 × 297 mm · Dọc</span><small>Chọn ảnh hoặc nhấn Ctrl + V</small></div>
-            <img class="hidden formula-image-preview" alt="Ảnh công thức ngữ pháp trang B">
+          <div class="cards" id="knowledgeCards"></div>
+        </section>
+
+        <section class="section" id="chapters"></section>
+
+        <section class="section" id="appendixSection">
+          <div class="section-head">
+            <div>
+              <h3>Phụ lục ngưỡng chỉ số</h3>
+              <p class="section-sub">Bảng tra cứu nhanh các ngưỡng thường dùng khi đọc Output SPSS.</p>
+            </div>
           </div>
+          <div class="appendix-grid" id="appendixGrid"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="metricModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <div class="modal-head">
+        <h3 id="modalTitle">Chỉ số</h3>
+        <button class="close-btn" id="closeModal" aria-label="Đóng"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    const metrics = {
+      "Mean": {
+        group: "Mô tả",
+        icon: "fa-calculator",
+        what: "Điểm trung bình của biến hoặc thang đo.",
+        where: "Bảng Descriptive Statistics hoặc Group Statistics.",
+        read: "Mean càng cao nghĩa là mức độ đồng ý, đánh giá hoặc biểu hiện của biến càng cao.",
+        threshold: "Likert 5 mức: 1.00-1.80 rất thấp; 1.81-2.60 thấp; 2.61-3.40 trung bình; 3.41-4.20 cao; 4.21-5.00 rất cao.",
+        write: "Biến HD_TB đạt Mean = 4.50, cho thấy người trả lời đánh giá rất tích cực."
+      },
+      "SD": {
+        group: "Mô tả",
+        icon: "fa-wave-square",
+        what: "Độ lệch chuẩn, phản ánh mức độ phân tán của dữ liệu quanh Mean.",
+        where: "Cột Std. Deviation trong bảng mô tả.",
+        read: "SD nhỏ cho thấy câu trả lời tập trung; SD lớn cho thấy câu trả lời phân tán.",
+        threshold: "Không có ngưỡng cứng; với Likert, SD dưới 1 thường được xem là mức phân tán vừa phải.",
+        write: "Mean = 4.63; SD = 0.50 cho thấy đánh giá cao và mức đồng thuận tốt."
+      },
+      "Cronbach's Alpha": {
+        group: "Cronbach",
+        icon: "fa-shield-halved",
+        what: "Chỉ số đo độ nhất quán nội tại của thang đo.",
+        where: "Bảng Reliability Statistics.",
+        read: "Alpha càng cao, các biến quan sát trong cùng thang đo càng nhất quán.",
+        threshold: "< 0.6 không đạt; 0.6-0.7 chấp nhận; 0.7-0.8 khá; 0.8-0.9 tốt; > 0.9 rất tốt nhưng cần xem trùng ý.",
+        write: "Thang đo đạt độ tin cậy tốt với Cronbach's Alpha = 0.820."
+      },
+      "CITC": {
+        group: "Cronbach",
+        icon: "fa-link",
+        what: "Corrected Item-Total Correlation, tương quan biến - tổng hiệu chỉnh.",
+        where: "Bảng Item-Total Statistics.",
+        read: "Cho biết từng biến quan sát có phù hợp với toàn thang đo không.",
+        threshold: "CITC >= 0.3 là đạt; CITC < 0.3 nên cân nhắc loại.",
+        write: "Các biến quan sát đều có CITC lớn hơn 0.3 nên được giữ lại."
+      },
+      "KMO": {
+        group: "EFA",
+        icon: "fa-sitemap",
+        what: "Chỉ số đánh giá mức độ phù hợp của dữ liệu để phân tích nhân tố.",
+        where: "Bảng KMO and Bartlett's Test.",
+        read: "KMO càng cao, dữ liệu càng phù hợp để chạy EFA.",
+        threshold: "KMO > 0.5 chấp nhận; KMO > 0.7 tốt.",
+        write: "KMO = 0.84 cho thấy dữ liệu phù hợp để phân tích nhân tố khám phá."
+      },
+      "Bartlett": {
+        group: "EFA",
+        icon: "fa-circle-nodes",
+        what: "Kiểm định xem các biến có tương quan đủ để phân tích nhân tố không.",
+        where: "Bảng KMO and Bartlett's Test.",
+        read: "Đọc dòng Sig. của Bartlett's Test.",
+        threshold: "Sig. < 0.05 là đạt.",
+        write: "Kiểm định Bartlett có Sig. < 0.05, chứng tỏ các biến có tương quan với nhau."
+      },
+      "Factor Loading": {
+        group: "EFA",
+        icon: "fa-layer-group",
+        what: "Hệ số tải nhân tố, cho biết biến quan sát thuộc về nhân tố nào mạnh đến đâu.",
+        where: "Bảng Rotated Component Matrix hoặc Pattern Matrix.",
+        read: "Biến nên tải mạnh vào một nhân tố và không tải chéo quá cao.",
+        threshold: "Factor Loading >= 0.5 thường được xem là đạt.",
+        write: "Các biến quan sát có hệ số tải nhân tố lớn hơn 0.5 nên được giữ lại."
+      },
+      "Sig.": {
+        group: "Hồi quy",
+        icon: "fa-star-half-stroke",
+        what: "Mức ý nghĩa thống kê, thường dùng để quyết định kết quả có ý nghĩa hay không.",
+        where: "Có trong bảng ANOVA, Coefficients, Correlations, T-test và ANOVA.",
+        read: "So sánh Sig. với 0.05.",
+        threshold: "Sig. < 0.05 là có ý nghĩa thống kê.",
+        write: "Kết quả có ý nghĩa thống kê ở mức 5% do Sig. < 0.05."
+      },
+      "Beta": {
+        group: "Hồi quy",
+        icon: "fa-arrow-trend-up",
+        what: "Hệ số hồi quy chuẩn hóa, dùng để so sánh mức ảnh hưởng giữa các biến độc lập.",
+        where: "Cột Standardized Coefficients Beta trong bảng Coefficients.",
+        read: "Beta dương là tác động cùng chiều; Beta âm là tác động ngược chiều; trị tuyệt đối lớn hơn là ảnh hưởng mạnh hơn.",
+        threshold: "Không có ngưỡng đạt chung; cần đi kèm Sig. < 0.05.",
+        write: "Biến X có ảnh hưởng cùng chiều đến Y với Beta = 0.35 và Sig. < 0.05."
+      },
+      "R2": {
+        group: "Hồi quy",
+        icon: "fa-square-poll-vertical",
+        what: "R Square, tỷ lệ biến thiên của biến phụ thuộc được mô hình giải thích.",
+        where: "Bảng Model Summary.",
+        read: "R2 = 0.642 nghĩa là mô hình giải thích 64.2% sự biến thiên của Y.",
+        threshold: "Không có ngưỡng cứng; dùng để đánh giá mức giải thích của mô hình.",
+        write: "Mô hình giải thích được 64.2% sự biến thiên của biến phụ thuộc."
+      },
+      "VIF": {
+        group: "Hồi quy",
+        icon: "fa-triangle-exclamation",
+        what: "Chỉ số kiểm tra đa cộng tuyến giữa các biến độc lập.",
+        where: "Cột VIF trong bảng Coefficients.",
+        read: "VIF càng cao, nguy cơ đa cộng tuyến càng lớn.",
+        threshold: "VIF < 10 thường được xem là không có đa cộng tuyến nghiêm trọng; nên xem thêm Tolerance > 0.1.",
+        write: "Các biến độc lập có VIF < 10 nên không xuất hiện đa cộng tuyến nghiêm trọng."
+      }
+    };
+
+    const chapters = [
+      {
+        id: "c1",
+        part: "Phần I",
+        group: "Làm quen",
+        title: "Giao diện IBM SPSS 26",
+        icon: "fa-desktop",
+        concept: "SPSS gồm nhiều khu vực làm việc giúp nhập dữ liệu, khai báo biến, chạy phân tích và đọc kết quả.",
+        when: "Dùng ở bước đầu khi mở dữ liệu, kiểm tra cấu trúc file và quản lý kết quả phân tích.",
+        run: ["Mở IBM SPSS Statistics 26.", "Quan sát Data View để nhập dữ liệu.", "Chuyển sang Variable View để khai báo biến.", "Chạy một phân tích mẫu để xem Output Viewer."],
+        output: ["Data View", "Variable View", "Output Viewer", "Syntax", "Pivot Table", "Chart Editor"],
+        metrics: ["Mean", "SD"],
+        meanings: ["Data View: mỗi hàng là một người trả lời, mỗi cột là một biến.", "Variable View: khai báo tên biến, nhãn, kiểu dữ liệu, giá trị mã hóa.", "Output Viewer: nơi hiển thị bảng kết quả phân tích.", "Syntax: nơi lưu lệnh SPSS để tái lập phân tích."],
+        thresholds: [["Khu vực", "Vai trò"], ["Data View", "Nhập và kiểm tra dữ liệu"], ["Variable View", "Khai báo biến đúng trước khi chạy"], ["Output Viewer", "Đọc bảng kết quả"]],
+        example: "Một bộ dữ liệu khảo sát có các biến HD1, HD2, HD3, HD4; mỗi dòng là một sinh viên.",
+        write: "Trước khi phân tích, dữ liệu được nhập theo từng quan sát trong Data View và các biến được khai báo đầy đủ trong Variable View.",
+        mistakes: ["Đặt tên biến có dấu hoặc khoảng trắng.", "Quên khai báo Value Labels cho biến định tính.", "Nhầm Data View với Variable View."],
+        practice: "Tạo 5 biến Likert trong Variable View và nhập thử 10 dòng dữ liệu.",
+        quiz: [
+          ["Mỗi hàng trong Data View thường là gì?", ["Một người trả lời", "Một nhóm biến", "Một bảng Output"], 0],
+          ["Variable View dùng để làm gì?", ["Khai báo biến", "Vẽ biểu đồ", "Xuất file PDF"], 0],
+          ["Output Viewer hiển thị gì?", ["Kết quả phân tích", "Mã hóa dữ liệu", "Tên file"], 0]
+        ],
+        mock: [["Biến", "Label", "Measure"], ["HD1", "Hoạt động bổ ích", "Scale"], ["GT", "Giới tính", "Nominal"]]
+      },
+      {
+        id: "c2",
+        part: "Phần I",
+        group: "Làm quen",
+        title: "Chuẩn bị dữ liệu",
+        icon: "fa-table",
+        concept: "Chuẩn bị dữ liệu là bước mã hóa, đặt tên biến, khai báo nhãn, xử lý missing và kiểm tra lỗi nhập liệu.",
+        when: "Dùng trước mọi phân tích để đảm bảo dữ liệu sạch và có cấu trúc đúng.",
+        run: ["Mã hóa Likert 1-5.", "Đặt tên biến ngắn như HD1, HD2, TV1.", "Khai báo Label và Values.", "Chạy Frequencies để phát hiện giá trị ngoài phạm vi."],
+        output: ["Frequencies", "Value Labels", "Missing Values"],
+        metrics: ["Mean", "SD"],
+        meanings: ["Likert 5 mức: 1 hoàn toàn không đồng ý đến 5 hoàn toàn đồng ý.", "Missing Values giúp SPSS hiểu giá trị nào là thiếu dữ liệu.", "Frequencies giúp phát hiện nhập nhầm như giá trị 6 trong thang 1-5."],
+        thresholds: [["Mục", "Yêu cầu"], ["Likert", "Chỉ nhận giá trị 1-5"], ["Name", "Ngắn, không dấu, không khoảng trắng"], ["Measure", "Scale cho biến Likert tổng hợp; Nominal cho biến phân loại"]],
+        example: "HD1, HD2, HD3, HD4 cùng thuộc thang đo Hoạt động.",
+        write: "Dữ liệu được mã hóa theo thang Likert 5 mức, trong đó 1 là hoàn toàn không đồng ý và 5 là hoàn toàn đồng ý.",
+        mistakes: ["Không khai báo nhãn giá trị.", "Để Decimals quá nhiều với biến mã hóa.", "Không kiểm tra missing trước phân tích."],
+        practice: "Chạy Frequencies cho toàn bộ biến Likert và ghi lại biến nào có giá trị ngoài 1-5.",
+        quiz: [
+          ["Giá trị 5 trong Likert yêu cầu này nghĩa là gì?", ["Hoàn toàn đồng ý", "Không đồng ý", "Phân vân"], 0],
+          ["Frequencies giúp kiểm tra gì?", ["Lỗi nhập liệu", "Đa cộng tuyến", "Hồi quy"], 0],
+          ["Tên biến nào phù hợp?", ["HD1", "Hoạt động 1", "HĐ-1"], 0]
+        ],
+        mock: [["Value", "Label", "Status"], ["1", "Hoàn toàn không đồng ý", "OK"], ["5", "Hoàn toàn đồng ý", "OK"]]
+      },
+      {
+        id: "c3",
+        part: "Phần II",
+        group: "Mô tả",
+        title: "Descriptive Statistics",
+        icon: "fa-chart-simple",
+        concept: "Thống kê mô tả tóm tắt đặc điểm dữ liệu bằng N, Mean, Std. Deviation, Minimum và Maximum.",
+        when: "Dùng để mô tả mức đánh giá trung bình, kiểm tra độ phân tán và nhìn nhanh phạm vi dữ liệu.",
+        run: ["Analyze", "Descriptive Statistics", "Descriptives", "Chọn biến cần mô tả", "OK"],
+        output: ["N", "Mean", "Std. Deviation", "Minimum", "Maximum"],
+        metrics: ["Mean", "SD"],
+        meanings: ["N: số lượng mẫu hợp lệ.", "Mean: điểm trung bình.", "Std. Deviation: độ lệch chuẩn.", "Minimum và Maximum: giá trị nhỏ nhất và lớn nhất."],
+        thresholds: [["Mean", "Diễn giải"], ["1.00-1.80", "Rất thấp"], ["1.81-2.60", "Thấp"], ["2.61-3.40", "Trung bình"], ["3.41-4.20", "Cao"], ["4.21-5.00", "Rất cao"]],
+        example: "HD2 có Mean = 4.63, SD = 0.50.",
+        write: "Tiêu chí Không khí buổi hoạt động vui vẻ và thoải mái đạt điểm trung bình cao nhất (Mean = 4.63; SD = 0.50), cho thấy đa số sinh viên đánh giá rất tích cực và có mức độ đồng thuận cao.",
+        mistakes: ["Chỉ báo cáo Mean mà không báo cáo SD.", "Diễn giải Mean ngoài thang đo đang dùng.", "Nhầm Std. Error với Std. Deviation."],
+        practice: "Chạy Descriptives cho HD1-HD4, xác định biến có Mean cao nhất và SD thấp nhất.",
+        quiz: [
+          ["Mean = 4.63 trên thang 1-5 thuộc mức nào?", ["Rất cao", "Trung bình", "Thấp"], 0],
+          ["SD cho biết điều gì?", ["Mức phân tán", "Số nhóm", "Mức ý nghĩa"], 0],
+          ["N trong bảng mô tả là gì?", ["Số mẫu hợp lệ", "Số nhân tố", "Số mô hình"], 0]
+        ],
+        mock: [["Variable", "N", "Mean", "Std. Deviation"], ["HD1", "180", "4.21", ".62"], ["HD2", "180", "4.63", ".50"]]
+      },
+      {
+        id: "c4",
+        part: "Phần III",
+        group: "Cronbach",
+        title: "Reliability Analysis",
+        icon: "fa-shield-halved",
+        concept: "Cronbach's Alpha kiểm tra độ tin cậy của thang đo trước khi phân tích sâu hơn.",
+        when: "Dùng khi có nhiều biến quan sát cùng đo một khái niệm, ví dụ HD1-HD4.",
+        run: ["Analyze", "Scale", "Reliability Analysis", "Đưa biến cùng nhóm vào Items", "Model: Alpha", "Statistics: Item, Scale, Scale if item deleted, Correlations"],
+        output: ["Reliability Statistics", "Item-Total Statistics", "Cronbach's Alpha", "Corrected Item-Total Correlation", "Cronbach's Alpha if Item Deleted"],
+        metrics: ["Cronbach's Alpha", "CITC"],
+        meanings: ["Cronbach's Alpha: độ nhất quán nội tại của thang đo.", "N of Items: số biến quan sát.", "CITC: biến có phù hợp với toàn thang đo không.", "Alpha if Item Deleted: nếu bỏ biến thì Alpha tăng hay giảm."],
+        thresholds: [["Chỉ số", "Ngưỡng"], ["Cronbach's Alpha < 0.6", "Không đạt"], ["0.6-0.7", "Chấp nhận"], ["0.7-0.8", "Khá"], ["0.8-0.9", "Tốt"], ["> 0.9", "Rất tốt nhưng xem trùng ý"], ["CITC >= 0.3", "Đạt"]],
+        example: "Cronbach's Alpha = 0.820; HD3 có CITC = 0.12 nên cần cân nhắc loại.",
+        write: "Kết quả kiểm định độ tin cậy cho thấy thang đo đạt độ tin cậy tốt (Cronbach's Alpha = 0.820). Các biến quan sát đều có CITC lớn hơn 0.3, do đó được giữ lại để phân tích tiếp theo.",
+        mistakes: ["Loại biến chỉ vì Alpha if Item Deleted tăng rất nhỏ.", "Giữ biến có CITC < 0.3 mà không giải thích.", "Chạy chung các biến thuộc nhiều khái niệm khác nhau."],
+        practice: "Chạy Reliability cho HD1-HD4 và quyết định có nên loại biến nào không.",
+        quiz: [
+          ["CITC đạt khi nào?", [">= 0.3", "< 0.05", "> 10"], 0],
+          ["Alpha = 0.820 được xem là gì?", ["Tốt", "Không đạt", "Đa cộng tuyến"], 0],
+          ["Alpha if Item Deleted dùng để xem gì?", ["Bỏ biến thì Alpha tăng hay giảm", "Mean cao hay thấp", "Số nhóm khác biệt"], 0]
+        ],
+        mock: [["Item", "Corrected Item-Total Correlation", "Cronbach's Alpha if Item Deleted"], ["HD1", ".58", ".801"], ["HD3", ".12", ".890"]]
+      },
+      {
+        id: "c5",
+        part: "Phần IV",
+        group: "EFA",
+        title: "Exploratory Factor Analysis",
+        icon: "fa-diagram-project",
+        concept: "EFA khám phá cấu trúc nhân tố của các biến quan sát và xem biến nào thuộc nhân tố nào.",
+        when: "Dùng sau Cronbach's Alpha để rút gọn và xác nhận sơ bộ cấu trúc thang đo.",
+        run: ["Analyze", "Dimension Reduction", "Factor", "Descriptives: KMO and Bartlett's test", "Extraction: Principal Component Analysis, Eigenvalue > 1", "Rotation: Varimax", "Options: Suppress small coefficients 0.50"],
+        output: ["KMO", "Bartlett's Test", "Communalities", "Total Variance Explained", "Scree Plot", "Rotated Component Matrix", "Pattern Matrix"],
+        metrics: ["KMO", "Bartlett", "Factor Loading"],
+        meanings: ["KMO: mức phù hợp của dữ liệu để phân tích nhân tố.", "Bartlett: kiểm định tương quan giữa các biến.", "Eigenvalue: quyết định số nhân tố giữ lại.", "Total Variance Explained: tổng phương sai trích.", "Factor Loading: mức tải nhân tố."],
+        thresholds: [["Chỉ số", "Ngưỡng"], ["KMO > 0.5", "Chấp nhận"], ["KMO > 0.7", "Tốt"], ["Sig. Bartlett < 0.05", "Đạt"], ["Eigenvalue > 1", "Giữ nhân tố"], ["Factor Loading >= 0.5", "Đạt"], ["Total Variance Explained >= 50%", "Tốt"]],
+        example: "KMO = 0.84 và Bartlett Sig. = 0.000.",
+        write: "Kết quả EFA cho thấy KMO = 0.84 và kiểm định Bartlett có Sig. < 0.05, chứng tỏ dữ liệu phù hợp để phân tích nhân tố khám phá.",
+        mistakes: ["Không bật KMO and Bartlett's test.", "Đọc nhầm Component Matrix thay vì Rotated Component Matrix.", "Giữ biến tải thấp hoặc tải chéo mà không giải thích."],
+        practice: "Chạy EFA, ghi số nhân tố được giữ lại và các biến có Factor Loading dưới 0.5.",
+        quiz: [
+          ["KMO tối thiểu thường cần lớn hơn bao nhiêu?", ["0.5", "0.05", "10"], 0],
+          ["Bartlett đạt khi Sig. thế nào?", ["< 0.05", "> 0.9", "= 1"], 0],
+          ["Factor Loading thường đạt khi nào?", [">= 0.5", "< 0.3", "> 10"], 0]
+        ],
+        mock: [["Variable", "Component 1", "Component 2"], ["HD1", ".782", ""], ["TV1", "", ".741"]]
+      },
+      {
+        id: "c6",
+        part: "Phần V",
+        group: "Tương quan",
+        title: "Pearson Correlation",
+        icon: "fa-arrows-left-right-to-line",
+        concept: "Tương quan Pearson đo mức độ và chiều hướng liên hệ tuyến tính giữa hai biến định lượng.",
+        when: "Dùng để xem các biến có liên hệ với nhau không trước khi hồi quy hoặc kiểm định giả thuyết.",
+        run: ["Analyze", "Correlate", "Bivariate", "Chọn Pearson", "Chọn Two-tailed nếu không giả định chiều", "OK"],
+        output: ["Pearson Correlation", "Sig. (2-tailed)", "N"],
+        metrics: ["Sig."],
+        meanings: ["Pearson r: mức độ và chiều hướng tương quan.", "Sig.: ý nghĩa thống kê.", "N: số mẫu."],
+        thresholds: [["|r|", "Mức tương quan"], ["< 0.3", "Yếu"], ["0.3 đến < 0.5", "Trung bình"], ["0.5 đến < 0.7", "Khá"], [">= 0.7", "Mạnh"], ["Sig. < 0.05", "Có ý nghĩa thống kê"]],
+        example: "r = 0.56; Sig. = 0.000 cho thấy tương quan cùng chiều mức khá và có ý nghĩa.",
+        write: "Kết quả Pearson cho thấy hai biến có tương quan cùng chiều mức khá (r = 0.56; p < 0.05).",
+        mistakes: ["Diễn giải tương quan như quan hệ nhân quả.", "Chỉ nhìn Sig. mà bỏ qua độ lớn của r.", "Không chú ý dấu âm hoặc dương của r."],
+        practice: "Chạy Pearson giữa các biến tổng hợp và xác định cặp biến có tương quan mạnh nhất.",
+        quiz: [
+          ["r âm nghĩa là gì?", ["Tương quan ngược chiều", "Không có mẫu", "Mô hình không phù hợp"], 0],
+          ["Sig. < 0.05 nghĩa là gì?", ["Có ý nghĩa thống kê", "Không đạt Cronbach", "Có đa cộng tuyến"], 0],
+          ["|r| >= 0.7 thường là mức nào?", ["Mạnh", "Yếu", "Không đọc được"], 0]
+        ],
+        mock: [["Variables", "Pearson Correlation", "Sig. (2-tailed)", "N"], ["HD_TB - HL_TB", ".560", ".000", "180"]]
+      },
+      {
+        id: "c7",
+        part: "Phần VI",
+        group: "Hồi quy",
+        title: "Linear Regression",
+        icon: "fa-chart-line",
+        concept: "Hồi quy tuyến tính đánh giá mức ảnh hưởng của các biến độc lập đến một biến phụ thuộc.",
+        when: "Dùng để kiểm định mô hình nghiên cứu và các giả thuyết tác động.",
+        run: ["Analyze", "Regression", "Linear", "Đưa biến phụ thuộc vào Dependent", "Đưa biến độc lập vào Independent(s)", "Statistics: Estimates, Model fit, Collinearity diagnostics, Durbin-Watson", "OK"],
+        output: ["Model Summary", "ANOVA", "Coefficients", "R Square", "Adjusted R Square", "F", "Sig.", "B", "Beta", "t", "Tolerance", "VIF", "Durbin-Watson"],
+        metrics: ["R2", "Sig.", "Beta", "VIF"],
+        meanings: ["R Square: mức giải thích của mô hình.", "Adjusted R Square: R2 hiệu chỉnh.", "Sig. trong ANOVA: mô hình có phù hợp không.", "Beta: mức ảnh hưởng chuẩn hóa.", "VIF: kiểm tra đa cộng tuyến.", "Durbin-Watson: kiểm tra tự tương quan phần dư."],
+        thresholds: [["Chỉ số", "Ngưỡng"], ["Sig. < 0.05", "Có ý nghĩa"], ["VIF < 10", "Không có đa cộng tuyến nghiêm trọng"], ["Tolerance > 0.1", "Đạt"], ["Durbin-Watson 1.5-2.5", "Chấp nhận"]],
+        example: "R2 = 0.642; Beta của HD = 0.35; Sig. = 0.000; VIF = 1.84.",
+        write: "Mô hình hồi quy có ý nghĩa thống kê (Sig. < 0.05) và giải thích được 64.2% sự biến thiên của biến phụ thuộc. Biến HD tác động cùng chiều đến Y với Beta = 0.35.",
+        mistakes: ["Dùng B để so sánh mức ảnh hưởng giữa các biến thay vì Beta.", "Không kiểm tra VIF.", "Chỉ báo R2 mà không đọc bảng ANOVA và Coefficients."],
+        practice: "Chạy hồi quy, ghi R2, Sig. ANOVA, Beta, Sig. của từng biến và VIF.",
+        quiz: [
+          ["VIF dùng để kiểm tra gì?", ["Đa cộng tuyến", "Độ tin cậy", "Phương sai nhóm"], 0],
+          ["Beta dùng để làm gì?", ["So sánh mức ảnh hưởng chuẩn hóa", "Đếm số mẫu", "Mã hóa Likert"], 0],
+          ["R2 = 0.642 nghĩa là gì?", ["Mô hình giải thích 64.2% biến thiên", "Có 642 mẫu", "Sig. đạt"], 0]
+        ],
+        mock: [["Variable", "Beta", "Sig.", "Tolerance", "VIF"], ["HD_TB", ".350", ".000", ".542", "1.845"], ["TV_TB", ".210", ".012", ".631", "1.585"]]
+      },
+      {
+        id: "c8",
+        part: "Phần VII",
+        group: "T-test",
+        title: "Independent Samples T-test",
+        icon: "fa-scale-balanced",
+        concept: "Independent Samples T-test so sánh trung bình của hai nhóm độc lập.",
+        when: "Dùng khi muốn so sánh hai nhóm như nam - nữ, có tham gia - không tham gia.",
+        run: ["Analyze", "Compare Means", "Independent-Samples T Test", "Đưa biến định lượng vào Test Variable(s)", "Đưa biến nhóm vào Grouping Variable", "Define Groups", "OK"],
+        output: ["Group Statistics", "Levene's Test", "t-test for Equality of Means", "Sig. (2-tailed)", "Mean Difference", "95% Confidence Interval"],
+        metrics: ["Sig.", "Mean"],
+        meanings: ["Levene's Test kiểm tra phương sai hai nhóm có bằng nhau không.", "Nếu Sig. Levene > 0.05 đọc dòng Equal variances assumed.", "Nếu Sig. Levene < 0.05 đọc dòng Equal variances not assumed.", "Sig. (2-tailed) < 0.05 nghĩa là có khác biệt có ý nghĩa giữa hai nhóm."],
+        thresholds: [["Chỉ số", "Cách đọc"], ["Levene Sig. > 0.05", "Đọc Equal variances assumed"], ["Levene Sig. < 0.05", "Đọc Equal variances not assumed"], ["Sig. (2-tailed) < 0.05", "Có khác biệt giữa hai nhóm"]],
+        example: "Nam Mean = 4.10, nữ Mean = 4.35, Sig. (2-tailed) = 0.021.",
+        write: "Kết quả Independent Samples T-test cho thấy có sự khác biệt có ý nghĩa thống kê giữa hai nhóm (p < 0.05).",
+        mistakes: ["Đọc sai dòng sau kiểm định Levene.", "Dùng T-test độc lập cho dữ liệu trước - sau cùng một nhóm.", "Không báo cáo Mean từng nhóm."],
+        practice: "So sánh điểm hài lòng giữa nam và nữ, xác định dòng cần đọc theo Levene.",
+        quiz: [
+          ["Levene Sig. > 0.05 thì đọc dòng nào?", ["Equal variances assumed", "Equal variances not assumed", "Post Hoc"], 0],
+          ["T-test độc lập dùng cho mấy nhóm?", ["Hai nhóm độc lập", "Một nhóm trước sau", "Từ ba nhóm trở lên"], 0],
+          ["Sig. (2-tailed) < 0.05 nghĩa là gì?", ["Có khác biệt có ý nghĩa", "Không có dữ liệu", "Alpha tốt"], 0]
+        ],
+        mock: [["Row", "Levene Sig.", "t", "Sig. (2-tailed)"], ["Equal variances assumed", ".210", "2.34", ".021"], ["Equal variances not assumed", "", "2.31", ".023"]]
+      },
+      {
+        id: "c9",
+        part: "Phần VIII",
+        group: "T-test",
+        title: "Paired Samples T-test",
+        icon: "fa-repeat",
+        concept: "Paired Samples T-test so sánh trung bình của cùng một nhóm ở hai thời điểm hoặc hai điều kiện.",
+        when: "Dùng khi so sánh Pre-test và Post-test, trước và sau can thiệp.",
+        run: ["Analyze", "Compare Means", "Paired-Samples T Test", "Ghép cặp biến trước và sau", "OK"],
+        output: ["Paired Samples Statistics", "Paired Samples Correlations", "Paired Samples Test"],
+        metrics: ["Mean", "Sig."],
+        meanings: ["Paired Samples Statistics cho Mean trước và sau.", "Paired Samples Test cho t, df và Sig.", "Sig. < 0.05 cho thấy khác biệt trước - sau có ý nghĩa."],
+        thresholds: [["Chỉ số", "Ngưỡng"], ["Sig. < 0.05", "Có khác biệt trước - sau"], ["Mean sau > Mean trước", "Kết quả tăng sau can thiệp"], ["Mean sau < Mean trước", "Kết quả giảm sau can thiệp"]],
+        example: "Mean trước = 3.20, Mean sau = 4.10, Sig. = 0.000.",
+        write: "Kết quả Paired Samples T-test cho thấy điểm trung bình sau can thiệp cao hơn trước can thiệp và sự khác biệt có ý nghĩa thống kê (p < 0.05).",
+        mistakes: ["Dùng Independent T-test cho dữ liệu cùng người đo trước - sau.", "Không nêu chiều thay đổi của Mean.", "Chỉ nhìn Correlations thay vì Paired Samples Test."],
+        practice: "So sánh điểm trước và sau tập huấn, kết luận có cải thiện không.",
+        quiz: [
+          ["Paired T-test dùng khi nào?", ["So sánh trước - sau cùng nhóm", "So sánh ba nhóm", "Kiểm tra KMO"], 0],
+          ["Bảng nào quan trọng để kết luận Sig.?", ["Paired Samples Test", "Variable View", "Rotated Matrix"], 0],
+          ["Mean sau cao hơn Mean trước cho thấy gì?", ["Có xu hướng tăng", "Có đa cộng tuyến", "Thang đo hỏng"], 0]
+        ],
+        mock: [["Pair", "Mean Difference", "t", "Sig. (2-tailed)"], ["Pre - Post", "-.900", "-6.24", ".000"]]
+      },
+      {
+        id: "c10",
+        part: "Phần IX",
+        group: "ANOVA",
+        title: "One-Way ANOVA",
+        icon: "fa-chart-pie",
+        concept: "One-Way ANOVA so sánh trung bình từ ba nhóm độc lập trở lên.",
+        when: "Dùng khi biến nhóm có từ ba mức, ví dụ năm học, khoa, mức thu nhập.",
+        run: ["Analyze", "Compare Means", "One-Way ANOVA", "Đưa biến định lượng vào Dependent List", "Đưa biến nhóm vào Factor", "Chọn Post Hoc phù hợp", "OK"],
+        output: ["Descriptives", "Test of Homogeneity of Variances", "ANOVA", "Post Hoc Tests"],
+        metrics: ["Sig.", "Mean"],
+        meanings: ["Levene Sig. > 0.05: phương sai đồng nhất.", "ANOVA Sig. < 0.05: có khác biệt giữa các nhóm.", "Post Hoc cho biết nhóm nào khác nhóm nào.", "Tukey dùng khi phương sai đồng nhất; Games-Howell dùng khi phương sai không đồng nhất."],
+        thresholds: [["Chỉ số", "Cách đọc"], ["Levene Sig. > 0.05", "Phương sai đồng nhất, dùng Tukey"], ["Levene Sig. < 0.05", "Phương sai không đồng nhất, dùng Games-Howell"], ["ANOVA Sig. < 0.05", "Có khác biệt giữa các nhóm"]],
+        example: "ANOVA Sig. = 0.018; Post Hoc cho thấy nhóm năm 4 khác nhóm năm 1.",
+        write: "Kết quả One-Way ANOVA cho thấy có sự khác biệt có ý nghĩa thống kê giữa các nhóm (p < 0.05). Kết quả Post Hoc chỉ ra nhóm năm 4 có điểm trung bình cao hơn nhóm năm 1.",
+        mistakes: ["Kết luận nhóm nào khác nhóm nào mà không xem Post Hoc.", "Dùng ANOVA cho hai nhóm trong khi T-test đủ dùng.", "Không kiểm tra Levene để chọn Post Hoc."],
+        practice: "So sánh Mean giữa ba năm học và chọn Tukey hoặc Games-Howell theo Levene.",
+        quiz: [
+          ["ANOVA dùng khi so sánh mấy nhóm trở lên?", ["Ba", "Hai", "Một"], 0],
+          ["Levene Sig. < 0.05 nên dùng Post Hoc nào?", ["Games-Howell", "Tukey", "Không cần"], 0],
+          ["ANOVA Sig. < 0.05 cho biết gì?", ["Có khác biệt giữa các nhóm", "Biết ngay nhóm nào khác", "KMO đạt"], 0]
+        ],
+        mock: [["Source", "F", "Sig."], ["Between Groups", "4.125", ".018"], ["Within Groups", "", ""]]
+      },
+      {
+        id: "c11",
+        part: "Phần X-XI",
+        group: "Viết kết quả",
+        title: "Cách viết kết quả và phụ lục tra cứu",
+        icon: "fa-pen-to-square",
+        concept: "Thư viện mẫu câu giúp chuyển số liệu SPSS thành đoạn viết học thuật ngắn gọn, đúng trọng tâm.",
+        when: "Dùng sau khi đã đọc đúng bảng Output và xác định chỉ số đạt hay không đạt.",
+        run: ["Chọn phân tích đã chạy.", "Ghi lại chỉ số chính.", "Đối chiếu ngưỡng.", "Viết câu mô tả kết quả.", "Nêu kết luận theo mục tiêu nghiên cứu."],
+        output: ["Descriptive Statistics", "Cronbach's Alpha", "EFA", "Correlation", "Regression", "Independent Samples T-test", "Paired Samples T-test", "ANOVA"],
+        metrics: ["Mean", "SD", "Cronbach's Alpha", "KMO", "Sig.", "Beta", "R2", "VIF"],
+        meanings: ["Mẫu câu cần có tên biến, chỉ số, giá trị, ngưỡng và kết luận.", "Không nên viết quá dài hoặc lặp lại toàn bộ bảng.", "Ưu tiên diễn giải theo câu hỏi nghiên cứu."],
+        thresholds: [["Loại phân tích", "Chỉ số thường báo cáo"], ["Mô tả", "Mean, SD"], ["Cronbach", "Alpha, CITC"], ["EFA", "KMO, Bartlett, Loading, Variance"], ["Tương quan", "r, Sig."], ["Hồi quy", "R2, F, Sig., Beta, VIF"], ["T-test/ANOVA", "Mean, Sig., Post Hoc nếu có"]],
+        example: "Giá trị trung bình của biến HD_TB đạt 4.50 (SD = 0.49).",
+        write: "Thang đo đạt độ tin cậy tốt với Cronbach's Alpha = 0.820. Các biến quan sát đều có CITC lớn hơn 0.3 nên được giữ lại.",
+        mistakes: ["Chép nguyên bảng Output thay vì diễn giải.", "Không ghi rõ giá trị chỉ số.", "Kết luận vượt quá dữ liệu, đặc biệt với tương quan."],
+        practice: "Viết một đoạn 3-4 câu cho kết quả mô tả, Cronbach và hồi quy từ số liệu mẫu.",
+        quiz: [
+          ["Một câu viết kết quả tốt cần có gì?", ["Chỉ số, giá trị và kết luận", "Chỉ tên bảng", "Chỉ cảm nhận cá nhân"], 0],
+          ["Với hồi quy nên báo cáo gì?", ["R2, Sig., Beta, VIF", "Chỉ N", "Chỉ Minimum"], 0],
+          ["Có nên chép nguyên Output vào phần kết quả không?", ["Không nên", "Luôn luôn", "Chỉ khi đẹp"], 0]
+        ],
+        mock: [["Phân tích", "Mẫu câu"], ["Mô tả", "Mean = 4.50; SD = 0.49, mức rất cao."], ["EFA", "KMO = 0.84; Bartlett Sig. < 0.05, dữ liệu phù hợp."]]
+      }
+    ];
+
+    const appendix = [
+      ["Quy đổi Mean", [["1.00-1.80", "Rất thấp"], ["1.81-2.60", "Thấp"], ["2.61-3.40", "Trung bình"], ["3.41-4.20", "Cao"], ["4.21-5.00", "Rất cao"]]],
+      ["Cronbach's Alpha", [["< 0.6", "Không đạt"], ["0.6-0.7", "Chấp nhận"], ["0.7-0.8", "Khá"], ["0.8-0.9", "Tốt"], ["> 0.9", "Rất tốt, kiểm tra trùng ý"]]],
+      ["KMO và EFA", [["KMO > 0.5", "Chấp nhận"], ["KMO > 0.7", "Tốt"], ["Bartlett Sig. < 0.05", "Đạt"], ["Factor Loading >= 0.5", "Đạt"], ["Variance Explained >= 50%", "Tốt"]]],
+      ["Pearson r", [["|r| < 0.3", "Yếu"], ["0.3 <= |r| < 0.5", "Trung bình"], ["0.5 <= |r| < 0.7", "Khá"], ["|r| >= 0.7", "Mạnh"], ["Sig. < 0.05", "Có ý nghĩa"]]],
+      ["Hồi quy", [["Sig. < 0.05", "Có ý nghĩa"], ["VIF < 10", "Không đa cộng tuyến nghiêm trọng"], ["Tolerance > 0.1", "Đạt"], ["Durbin-Watson 1.5-2.5", "Chấp nhận"]]],
+      ["Khi nào dùng phân tích nào?", [["T-test", "So sánh hai nhóm"], ["ANOVA", "So sánh từ ba nhóm trở lên"], ["EFA", "Khám phá nhân tố"], ["Hồi quy", "Kiểm định tác động"], ["Tương quan", "Đo liên hệ giữa hai biến"]]],
+      ["Thuật ngữ Anh - Việt", [["Mean", "Trung bình"], ["Standard Deviation", "Độ lệch chuẩn"], ["Sig.", "Mức ý nghĩa"], ["Reliability Statistics", "Thống kê độ tin cậy"], ["Corrected Item-Total Correlation", "Tương quan biến - tổng hiệu chỉnh"], ["Rotated Component Matrix", "Ma trận xoay nhân tố"], ["Coefficients", "Hệ số hồi quy"]]]
+    ];
+
+    const state = {
+      activeId: localStorage.getItem("atlas-active") || "c1",
+      done: JSON.parse(localStorage.getItem("atlas-done") || "[]"),
+      notes: JSON.parse(localStorage.getItem("atlas-notes") || "{}"),
+      theme: localStorage.getItem("atlas-theme") || "light"
+    };
+
+    const $ = (selector) => document.querySelector(selector);
+    const $$ = (selector) => [...document.querySelectorAll(selector)];
+
+    function icon(name) {
+      return `<i class="fa-solid ${name}" aria-hidden="true"></i>`;
+    }
+
+    function renderNav() {
+      const nav = $("#chapterNav");
+      nav.innerHTML = chapters.map(ch => `
+        <button class="nav-link ${ch.id === state.activeId ? "active" : ""} ${state.done.includes(ch.id) ? "done" : ""}" data-chapter="${ch.id}" data-group="${ch.group}">
+          ${icon(ch.icon)}
+          <span>${ch.title}</span>
+          <span class="done-dot" aria-hidden="true"></span>
+        </button>
+      `).join("");
+    }
+
+    function renderQuickGrid() {
+      const items = [
+        ["Làm quen với SPSS", "c1"], ["Thống kê mô tả", "c3"], ["Cronbach's Alpha", "c4"],
+        ["EFA", "c5"], ["Tương quan", "c6"], ["Hồi quy", "c7"],
+        ["T-test", "c8"], ["ANOVA", "c10"], ["Cách viết kết quả", "c11"], ["Phụ lục ngưỡng chỉ số", "appendix"]
+      ];
+      $("#quickGrid").innerHTML = items.map(([label, id]) => `<button data-jump="${id}">${label}</button>`).join("");
+    }
+
+    function renderKnowledgeCards() {
+      $("#knowledgeCards").innerHTML = Object.entries(metrics).slice(0, 6).map(([name, data]) => `
+        <article class="card">
+          <h4>${icon(data.icon)} <button class="metric-pill" data-metric="${name}">${name}</button></h4>
+          <p>${data.what}</p>
+        </article>
+      `).join("");
+    }
+
+    function renderChapters() {
+      $("#chapters").innerHTML = chapters.map(ch => `
+        <article class="chapter ${ch.id === state.activeId ? "active" : ""}" id="${ch.id}" data-group="${ch.group}">
+          <div class="chapter-header">
+            <span class="eyebrow">${icon(ch.icon)} ${ch.part} - ${ch.group}</span>
+            <h2>${ch.title}</h2>
+            <p class="section-sub">${ch.concept}</p>
+            <div class="tags">
+              ${ch.output.slice(0, 8).map(x => `<span class="tag">${x}</span>`).join("")}
+            </div>
+            <div class="tags">
+              ${ch.metrics.map(m => `<button class="metric-pill" data-metric="${m}">${m}</button>`).join("")}
+            </div>
+          </div>
+          <div class="chapter-body">
+            ${accordion("Khái niệm", `<p>${ch.concept}</p>`, true)}
+            ${accordion("Khi nào dùng?", `<p>${ch.when}</p>`)}
+            ${accordion("Cách chạy trên SPSS", `<ol class="steps">${ch.run.map(x => `<li>${x}</li>`).join("")}</ol>`)}
+            ${accordion("Output cần đọc", `<div class="tags">${ch.output.map(x => `<span class="tag">${x}</span>`).join("")}</div>`)}
+            ${accordion("Chỉ số cần chú ý", `<div class="tags">${ch.metrics.map(m => `<button class="metric-pill" data-metric="${m}">${m}</button>`).join("")}</div>`)}
+            ${accordion("Ý nghĩa từng chỉ số", `<ul>${ch.meanings.map(x => `<li>${x}</li>`).join("")}</ul>`)}
+            ${accordion("Ngưỡng chấp nhận", table(ch.thresholds, "threshold-table"))}
+            ${accordion("Ví dụ minh họa", `<div class="callout">${ch.example}</div>${mockOutput(ch)}`)}
+            ${accordion("Cách viết vào luận văn", `<div class="sample-write">${ch.write}</div>`)}
+            ${accordion("Lỗi thường gặp", `<ul class="mistake-list">${ch.mistakes.map(x => `<li>${x}</li>`).join("")}</ul>`)}
+            ${accordion("Bài tập thực hành", `<p>${ch.practice}</p>${quizBlock(ch)}`)}
+            ${accordion("Ghi chú của tôi", notesBlock(ch))}
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function accordion(title, content, open = false) {
+      return `
+        <div class="accordion ${open ? "open" : ""}">
+          <button class="acc-btn"><span>${title}</span>${icon("fa-chevron-down")}</button>
+          <div class="acc-content">${content}</div>
         </div>
-        <aside><b>Hai trang học song song</b><p>Ảnh được căn giữa trên nền A4 và tự thu nhỏ để không bị cắt. Mỗi ngày lưu riêng hai trang A và B.</p></aside>
-      </div>
-    </section>
+      `;
+    }
 
-    <section class="practice panel" id="practicePanel">
-      <div class="panel-head">
-        <div><span>05</span><h3>Bài tập hôm nay</h3><b id="exerciseCount">0 câu</b></div>
-        <div class="practice-actions"><button class="btn yellow" id="reviewErrors">Réviser les erreurs</button><button class="btn danger-ghost" id="resetDay">Réinitialiser la journée</button></div>
-      </div>
-      <div class="exam-notice hidden" id="examNotice">Mode Examen đang bật — đáp án và giải thích chỉ hiện sau khi nộp bài.</div>
-      <form id="exerciseForm"></form>
-      <div class="submit-row"><button class="btn navy" id="submitButton" type="button">Nộp bài</button></div>
-      <div class="result hidden" id="resultBox"></div>
-    </section>
+    function table(rows, className) {
+      const [head, ...body] = rows;
+      return `<table class="${className}"><thead><tr>${head.map(x => `<th>${x}</th>`).join("")}</tr></thead><tbody>${body.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+    }
 
-    <section class="notes panel">
-      <div class="panel-head"><div><span>06</span><h3>Ghi chú cá nhân</h3></div><small id="noteStatus">Tự động lưu</small></div>
-      <textarea id="notes" rows="6" placeholder="Ghi lại cấu trúc cần nhớ, lỗi hay mắc hoặc ví dụ của riêng bạn..."></textarea>
-    </section>
+    function mockOutput(ch) {
+      const [head, ...body] = ch.mock;
+      return `
+        <div class="callout" style="margin-top:12px">
+          <strong>Mô phỏng Output SPSS:</strong> các ô viền đỏ là chỉ số cần đọc trước.
+        </div>
+        <table class="output-table" style="margin-top:10px">
+          <thead><tr>${head.map(x => `<th>${x}</th>`).join("")}</tr></thead>
+          <tbody>${body.map((row, rowIndex) => `<tr>${row.map((cell, cellIndex) => `<td class="${rowIndex === 0 && cellIndex > 0 ? "hot-cell" : ""}">${cell}</td>`).join("")}</tr>`).join("")}</tbody>
+        </table>
+      `;
+    }
 
-    <section class="guide panel">
-      <div class="panel-head"><div><span>07</span><h3>Đưa web lên GitHub Pages</h3></div></div>
-      <ol><li>Tạo repository mới trên GitHub.</li><li>Tải ba tệp <code>index.html</code>, <code>style.css</code>, <code>script.js</code> lên nhánh <code>main</code>.</li><li>Mở Settings → Pages → Deploy from a branch → chọn <code>main / root</code>.</li><li>Chờ GitHub cung cấp đường dẫn miễn phí.</li></ol>
-    </section>
-    <footer>La grammaire devient simple quand on pratique un peu chaque jour.</footer>
-  </main>
-  <div class="toast" id="toast" role="status"></div>
-  <script src="script.js"></script>
+    function quizBlock(ch) {
+      return `<div class="quiz" data-quiz="${ch.id}">
+        ${ch.quiz.map((q, index) => `
+          <div class="quiz-item">
+            <strong>Câu ${index + 1}. ${q[0]}</strong>
+            <div class="quiz-options">
+              ${q[1].map((option, optIndex) => `<button data-answer="${optIndex}" data-correct="${q[2]}">${option}</button>`).join("")}
+            </div>
+          </div>
+        `).join("")}
+      </div>`;
+    }
+
+    function notesBlock(ch) {
+      const value = state.notes[ch.id] || "";
+      return `<div class="notes-box">
+        <textarea data-note="${ch.id}" placeholder="Ghi lại cách đọc Output, lỗi cần tránh hoặc câu viết mẫu cho chương này...">${value}</textarea>
+      </div>`;
+    }
+
+    function renderAppendix() {
+      $("#appendixGrid").innerHTML = appendix.map(([title, rows]) => `
+        <article class="card">
+          <h4>${icon("fa-book-open")} ${title}</h4>
+          ${table([["Ngưỡng / thuật ngữ", "Diễn giải"], ...rows], "threshold-table")}
+        </article>
+      `).join("");
+    }
+
+    function setActive(id) {
+      if (id === "appendix") {
+        $("#appendixSection").scrollIntoView({ behavior: "smooth", block: "start" });
+        closeMobile();
+        return;
+      }
+      state.activeId = id;
+      localStorage.setItem("atlas-active", id);
+      $$(".chapter").forEach(el => el.classList.toggle("active", el.id === id));
+      renderNav();
+      updateHeader();
+      document.getElementById(id).scrollIntoView({ behavior: "smooth", block: "start" });
+      closeMobile();
+    }
+
+    function updateHeader() {
+      const ch = chapters.find(x => x.id === state.activeId);
+      $("#currentTitle").textContent = ch ? ch.title : "Trang chủ";
+      $("#currentSubtitle").textContent = ch ? `${ch.part} - ${ch.group}` : "Chọn chương hoặc tìm chỉ số cần đọc";
+      $("#markDone").classList.toggle("done", ch && state.done.includes(ch.id));
+    }
+
+    function updateProgress() {
+      const total = chapters.length;
+      const done = state.done.length;
+      $("#progressText").textContent = `${done}/${total}`;
+      $("#progressFill").style.width = `${Math.round(done / total * 100)}%`;
+    }
+
+    function toggleDone() {
+      const id = state.activeId;
+      if (state.done.includes(id)) {
+        state.done = state.done.filter(x => x !== id);
+      } else {
+        state.done.push(id);
+      }
+      localStorage.setItem("atlas-done", JSON.stringify(state.done));
+      renderNav();
+      updateProgress();
+      updateHeader();
+    }
+
+    function showMetric(name) {
+      const data = metrics[name];
+      if (!data) return;
+      $("#modalTitle").textContent = name;
+      $("#modalBody").innerHTML = `
+        <div class="card"><h4>${icon(data.icon)} Là gì?</h4><p>${data.what}</p></div>
+        <div class="card"><h4>${icon("fa-location-dot")} Nằm ở đâu trong Output?</h4><p>${data.where}</p></div>
+        <div class="card"><h4>${icon("fa-book")} Đọc như thế nào?</h4><p>${data.read}</p></div>
+        <div class="card"><h4>${icon("fa-check-circle")} Ngưỡng bao nhiêu là đạt?</h4><p>${data.threshold}</p></div>
+        <div class="card"><h4>${icon("fa-pen")} Viết vào luận văn ra sao?</h4><p>${data.write}</p></div>
+      `;
+      $("#metricModal").classList.add("show");
+    }
+
+    function searchMetrics() {
+      const keyword = $("#metricSearch").value.trim().toLowerCase();
+      const list = Object.keys(metrics).filter(name => {
+        const data = metrics[name];
+        return !keyword || [name, data.group, data.what, data.threshold].join(" ").toLowerCase().includes(keyword);
+      });
+      const box = $("#searchResults");
+      if (!keyword) {
+        box.classList.remove("show");
+        return;
+      }
+      $("#resultList").innerHTML = list.length
+        ? list.map(name => `<button class="metric-pill" data-metric="${name}">${name} - ${metrics[name].group}</button>`).join("")
+        : `<span class="tag">Không tìm thấy chỉ số phù hợp</span>`;
+      box.classList.add("show");
+    }
+
+    function applyFilter() {
+      const group = $("#groupFilter").value;
+      $$(".nav-link").forEach(btn => {
+        btn.style.display = group === "all" || btn.dataset.group === group ? "" : "none";
+      });
+    }
+
+    function saveNote(el) {
+      state.notes[el.dataset.note] = el.value;
+      localStorage.setItem("atlas-notes", JSON.stringify(state.notes));
+    }
+
+    function exportNotes() {
+      const lines = chapters.map(ch => {
+        const note = state.notes[ch.id] || "";
+        return `# ${ch.title}\r\n${note || "(Chưa có ghi chú)"}\r\n`;
+      }).join("\r\n");
+      const blob = new Blob([lines], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "ghi-chu-atlas-spss.txt";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function toggleTheme() {
+      state.theme = state.theme === "dark" ? "light" : "dark";
+      localStorage.setItem("atlas-theme", state.theme);
+      applyTheme();
+    }
+
+    function applyTheme() {
+      document.documentElement.dataset.theme = state.theme;
+      $("#themeToggle").innerHTML = state.theme === "dark"
+        ? `${icon("fa-sun")}<span>Light Mode</span>`
+        : `${icon("fa-moon")}<span>Dark Mode</span>`;
+    }
+
+    function closeMobile() {
+      $("#sidebar").classList.remove("open");
+      $("#mobileOverlay").classList.remove("show");
+    }
+
+    function bindEvents() {
+      document.addEventListener("click", (event) => {
+        const metricBtn = event.target.closest("[data-metric]");
+        if (metricBtn) showMetric(metricBtn.dataset.metric);
+
+        const navBtn = event.target.closest("[data-chapter]");
+        if (navBtn) setActive(navBtn.dataset.chapter);
+
+        const jumpBtn = event.target.closest("[data-jump]");
+        if (jumpBtn) setActive(jumpBtn.dataset.jump);
+
+        const accBtn = event.target.closest(".acc-btn");
+        if (accBtn) accBtn.closest(".accordion").classList.toggle("open");
+
+        const quizBtn = event.target.closest(".quiz-options button");
+        if (quizBtn) {
+          const wrap = quizBtn.closest(".quiz-options");
+          const correct = quizBtn.dataset.correct;
+          wrap.querySelectorAll("button").forEach(btn => {
+            btn.classList.remove("correct", "wrong");
+            if (btn.dataset.answer === correct) btn.classList.add("correct");
+          });
+          if (quizBtn.dataset.answer !== correct) quizBtn.classList.add("wrong");
+        }
+      });
+
+      $("#metricSearch").addEventListener("input", searchMetrics);
+      $("#groupFilter").addEventListener("change", applyFilter);
+      $("#markDone").addEventListener("click", toggleDone);
+      $("#exportNotes").addEventListener("click", exportNotes);
+      $("#themeToggle").addEventListener("click", toggleTheme);
+      $("#closeModal").addEventListener("click", () => $("#metricModal").classList.remove("show"));
+      $("#metricModal").addEventListener("click", e => {
+        if (e.target.id === "metricModal") $("#metricModal").classList.remove("show");
+      });
+      $("#mobileMenu").addEventListener("click", () => {
+        $("#sidebar").classList.add("open");
+        $("#mobileOverlay").classList.add("show");
+      });
+      $("#mobileOverlay").addEventListener("click", closeMobile);
+
+      document.addEventListener("input", e => {
+        if (e.target.matches("[data-note]")) saveNote(e.target);
+      });
+
+      document.addEventListener("keydown", e => {
+        if (e.key === "Escape") {
+          $("#metricModal").classList.remove("show");
+          closeMobile();
+        }
+      });
+    }
+
+    function init() {
+      applyTheme();
+      renderQuickGrid();
+      renderKnowledgeCards();
+      renderNav();
+      renderChapters();
+      renderAppendix();
+      bindEvents();
+      updateProgress();
+      updateHeader();
+      applyFilter();
+    }
+
+    init();
+  </script>
 </body>
 </html>
